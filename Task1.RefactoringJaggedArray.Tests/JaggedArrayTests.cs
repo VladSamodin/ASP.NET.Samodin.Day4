@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Task1.RefactoringJaggedArray.Tests
@@ -112,6 +113,13 @@ namespace Task1.RefactoringJaggedArray.Tests
             IStructuralEquatable actual = array;
 
             Assert.IsTrue(actual.Equals(expected, StructuralComparisons.StructuralEqualityComparer));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Sort_NullAndDescSumElementsComparer_ArgumentNullException()
+        {
+            JaggedArray.Sort(null, new DescSumElementsComparer());
         }
     }
 }
