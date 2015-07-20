@@ -1,10 +1,15 @@
-﻿
+﻿using System;
+
 namespace Task1.RefactoringJaggedArray
 {
     public class JaggedArray
     {
         public static void Sort(int[][] array, IArraysComparer<int> comparer)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("array");
+            }
             for (int i = 0; i < array.Length - 1; i++)
             {
                 int indexMin = i;
